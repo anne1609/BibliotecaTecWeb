@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input} from '@angular/core';
 
 @Component({
   selector: 'app-restaurant',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './restaurant.component.css'
 })
 export class RestaurantComponent {
-
+  @Input() imagen: string = '';
+  @Input() titulo: string = '';
+  @Input() precio: string = '';
+  
 }

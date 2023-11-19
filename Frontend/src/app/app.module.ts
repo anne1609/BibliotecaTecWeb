@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RestaurantComponent } from './elementos/restaurant/restaurant.component';
 import { DetalleRestaurantComponent } from './elementos/detalle-restaurant/detalle-restaurant.component';
 import { RestaurantsComponent } from './paginas/restaurants/restaurants.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RestaurantsComponent } from './paginas/restaurants/restaurants.componen
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
