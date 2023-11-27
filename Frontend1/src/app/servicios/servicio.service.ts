@@ -8,6 +8,6 @@ export class ServicioService {
 
   constructor(private http: HttpClient) { }
   obtenerLibros(){
-    return this.http.get('') //Insertar URL del la importacion de Python
+    return this.http.get('https://bca1-190-104-9-145.ngrok-free.app/books') //Insertar URL del la importacion de Python
   }
 }

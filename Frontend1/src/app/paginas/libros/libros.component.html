@@ -1,1 +1,9 @@
 <p>libros works!</p>
+<div class="Producto">
+    <div *ngFor="let libro of datos" class="item">
+        <app-detalle-libros
+        [titulo]="libro.titulo"
+        [precio]="libro.precio"
+        [imagen]="libro.image"></app-detalle-libros>
+    </div>
+</div>
