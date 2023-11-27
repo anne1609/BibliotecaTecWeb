@@ -1,1 +1,76 @@
-<p>registrar-libro works!</p>
+<div class="form-container">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+        <mat-label>Nombre del libro</mat-label>
+        <input matInput formControlName="bookName" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Autor</mat-label>
+        <input matInput formControlName="author" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <input matInput formControlName="category" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Titulo</mat-label>
+        <input matInput formControlName="title" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Subtitulo</mat-label>
+        <input matInput formControlName="subtitle" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>ISBN</mat-label>
+        <input matInput formControlName="isbn" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Precio</mat-label>
+        <input matInput formControlName="price" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Resumen</mat-label>
+        <textarea matInput formControlName="summary" required></textarea>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Imagen</mat-label>
+        <input matInput formControlName="image" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Calificación</mat-label>
+        <input matInput formControlName="rating" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Número de páginas</mat-label>
+        <input matInput formControlName="pages" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Idioma</mat-label>
+        <input matInput formControlName="language" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Formato</mat-label>
+        <input matInput formControlName="format" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Fecha de publicación</mat-label>
+        <input matInput formControlName="publicationDate" required>
+        </mat-form-field>
+    </form>
+    <div class="button-container">
+        <button mat-raised-button color="primary" type="submit">Registrar</button>
+      </div>
+</div>
