@@ -22,6 +22,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { InicioComponent } from './paginas/inicio/inicio.component';
 
 
 
@@ -34,7 +35,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     DetalleLibrosComponent,
     LibroComponent,
     EditarLibroComponent,
-    ListaLibrosComponent
+    ListaLibrosComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@
   <mat-card *ngFor="let libro of libros" class="book-card">
 
     <div class="card-content">
-      <img mat-card-avatar [src]="'assets/images/' + libro.imagen" alt="Libro">
+      <img mat-card-avatar [src]=libro.image alt="Libro">
       <div class="text-content">
         <mat-card-title>{{ libro.titulo }}</mat-card-title>
         <mat-card-content>
