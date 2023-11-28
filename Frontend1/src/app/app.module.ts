@@ -14,6 +14,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListaLibrosComponent } from './paginas/lista-libros/lista-libros.component';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistrarLibroComponent,
     DetalleLibrosComponent,
     LibroComponent,
-    EditarLibroComponent
+    EditarLibroComponent,
+    ListaLibrosComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +44,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    FormsModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

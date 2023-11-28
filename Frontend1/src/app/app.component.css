@@ -1,0 +1,44 @@
+.mat-toolbar {
+  background-color: #005187;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+
+.mat-toolbar span{
+  color:beige;
+ 
+  font-size: 24px; 
+
+}
+
+.navbar-links {
+  display: flex;
+  margin-left: auto;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 18px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+footer {
+  background-color: #005187; /* Fondo azul para el footer */
+  color: white; /* Texto blanco en el footer */
+  text-align: center; /* Alinear el texto al centro */
+  padding: 20px 0; /* Agregar espacio de relleno arriba y abajo */
+  margin-top: 100px; 
+}
+
+.footer-content {
+  max-width: 1200px; /* Ancho máximo del contenido del footer */
+  margin: 0 auto; /* Centrar el contenido del footer en la página */
+}

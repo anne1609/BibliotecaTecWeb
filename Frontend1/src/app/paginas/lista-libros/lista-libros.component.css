@@ -1,0 +1,48 @@
+
+/* lista-libros.component.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+.search-title {
+  margin-left: auto;
+}
+
+.custom-mat-form-field {
+  background-color: white;
+  width: 400px;
+}
+
+button.mat-icon-button {
+  background-color: transparent;
+}
+
+.book-card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+
+.mat-mdc-card-avatar {
+  width: 20% !important;
+  height: 20% !important;
+  object-fit: cover !important;
+}
+
+
+
+/* lista-libros.component.css */
+.card-content {
+  display: flex;
+  justify-content: space-between; /* Alinea el botón del menú a la derecha */
+}
+
+.mat-menu-trigger {
+  
+  background-color: transparent;
+}

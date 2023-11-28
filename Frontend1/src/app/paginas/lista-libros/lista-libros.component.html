@@ -1,0 +1,41 @@
+<!-- lista-libros.component.html -->
+<div class="container">
+  <div class="search-title">
+    <mat-form-field class="custom-mat-form-field" appearance="fill">
+      <input matInput placeholder="Buscar libros " [(ngModel)]="filtro">
+      <button mat-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <mat-card *ngFor="let libro of libros" class="book-card">
+
+    <div class="card-content">
+      <img mat-card-avatar [src]="'assets/images/' + libro.imagen" alt="Libro">
+      <div class="text-content">
+        <mat-card-title>{{ libro.titulo }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ libro.descripcion }}</p>
+        </mat-card-content>
+      </div>
+
+      <!-- Agregar el botón del menú en la esquina superior derecha -->
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-menu-trigger">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <!-- Definir el menú -->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editarLibro(libro)">
+          <mat-icon>edit</mat-icon>
+          <span>Editar</span>
+        </button>
+        <button mat-menu-item (click)="eliminarLibro(libro)">
+          <mat-icon>delete</mat-icon>
+          <span>Eliminar</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-card>
+</div>

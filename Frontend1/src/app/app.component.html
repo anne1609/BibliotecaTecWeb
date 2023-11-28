@@ -1,2 +1,19 @@
 
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <span>Biblioteca online</span>
+    <div class="navbar-links">
+      <a routerLink="/inicio" class="navbar-link">Inicio</a>
+      <a routerLink="/lista-libros" class="navbar-link">Libros</a>
+      <a routerLink="/registrar-libro" class="navbar-link">Registrar libro</a>
+   
+    </div>
+  </mat-toolbar>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2023 Biblioteca Municipal. Todos los derechos reservados.</p>
+    </div>
+  </footer>
