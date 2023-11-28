@@ -11,7 +11,7 @@
 
   <mat-card *ngFor="let libro of libros" class="book-card">
 
-    <div class="card-content">
+    <div class="card-content" routerLink="/lista-libros/{{ libro._id }}">
       <img mat-card-avatar [src]=libro.image alt="Libro">
       <div class="text-content">
         <mat-card-title>{{ libro.titulo }}</mat-card-title>
