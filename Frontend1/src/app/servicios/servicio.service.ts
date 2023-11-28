@@ -13,4 +13,8 @@ export class ServicioService {
   addBook(bookData: any): Observable<any> {
     return this.http.post('/api/books', bookData);
   }
+  deleteBook(bookId: number): Observable<any> {
+    return this.http.delete(`/apiDelete/${bookId}`);
+  }
+  
 }

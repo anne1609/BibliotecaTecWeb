@@ -8,6 +8,11 @@ client = MongoClient("mongodb+srv://silpancho:silpancho@silpancho.paqmjpx.mongod
 db = client.SilDB
 collection = db.biblioteca
 
+@app.before_request
+def log_request_info():
+    app.logger.debug('Headers: %s', request.headers)
+    app.logger.debug('Body: %s', request.get_data())
+
 @app.route('/books', methods=['GET'])
 def get_books():
     limit_param = request.args.get('limit')
@@ -98,4 +103,4 @@ def edit_book(id):
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(port=7777)
+    app.run(port=7777, debug=True)

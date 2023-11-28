@@ -28,12 +28,26 @@ export class ListaLibrosComponent implements OnInit{
   }
 
   editarLibro(libro: any) {
-    // Implementa la lógica para editar el libro según tus necesidades.
     console.log('Editar libro:', libro);
   }
 
   eliminarLibro(libro: any) {
     console.log('Eliminar libro:', libro);
+    if (libro && libro._id) {
+      this.productosService.deleteBook(libro._id).subscribe(
+        response => {
+          console.log('Book deleted successfully:', response);
+        },
+        error => {
+          console.error('Error deleting book:', error);
+        }
+      );
+    }
+    this.productosService.obtenerLibros().subscribe(
+      data => this.libros = data,
+      error => console.log(error),
+      () => console.log("FIN")
+    )
   }
 
   filtrarLibro(filtro: string) {
