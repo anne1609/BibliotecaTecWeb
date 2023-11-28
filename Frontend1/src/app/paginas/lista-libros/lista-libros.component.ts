@@ -33,12 +33,19 @@ export class ListaLibrosComponent implements OnInit{
   }
 
   eliminarLibro(libro: any) {
-    // Implementa la lógica para eliminar el libro según tus necesidades.
     console.log('Eliminar libro:', libro);
   }
 
-  /*get librosFiltrados(): any[] {
-    return this.libros.filter(libro => libro.titulo.toLowerCase().includes(this.filtro.toLowerCase()));
-  }*/
+  filtrarLibro(filtro: string) {
+    const librosFiltrados = this.libros.filter((libro: { titulo: string } & { descripcion?: string } & { imagen?: string }) => {
+      if (libro.titulo.toLowerCase().includes(filtro.toLowerCase())) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    this.libros = librosFiltrados;
+  }
+  
 
 }
