@@ -20,5 +20,12 @@
       "logLevel": "debug",
       "pathRewrite": {"^/libro/" : ""}
     }
+    ,"/editar/*": {
+      "target": "http://127.0.0.1:7777/edit/book",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/editar/" : ""}
+    }
   }
   

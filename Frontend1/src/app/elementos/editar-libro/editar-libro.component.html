@@ -1,1 +1,72 @@
-<p>editar-libro works!</p>
+<div class="form-container">
+    <h2 class="form-title">Editar libro</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="update()">
+        <mat-form-field appearance="fill">
+        <mat-label>Nombre del libro</mat-label>
+        <input matInput formControlName="titulo" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Autor</mat-label>
+        <input matInput formControlName="autor" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <input matInput formControlName="categoria" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Subtitulo</mat-label>
+        <input matInput formControlName="subtitulo" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Puntuación</mat-label>
+        <input matInput formControlName="rating" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>ISBN</mat-label>
+        <input matInput formControlName="isbn13" required value={{libro.isbn13}}>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Precio</mat-label>
+        <input matInput formControlName="precio" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Resumen</mat-label>
+        <textarea matInput formControlName="resumen" required></textarea>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Imagen</mat-label>
+        <input matInput formControlName="image" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Número de páginas</mat-label>
+        <input matInput formControlName="paginas" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Idioma</mat-label>
+        <input matInput formControlName="idioma" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Formato</mat-label>
+        <input matInput formControlName="formato" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+        <mat-label>Fecha de publicación</mat-label>
+        <input matInput formControlName="fecha_publicacion" required>
+        </mat-form-field>
+    </form>
+    <div class="button-container">
+        <button mat-raised-button color="primary" (click)="update()">Editar</button>
+      </div>
+</div>

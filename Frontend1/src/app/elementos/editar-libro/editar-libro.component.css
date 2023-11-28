@@ -1,0 +1,17 @@
+.form-title {
+    text-align: center;
+    margin-bottom: 20px; /* Ajusta el margen inferior según sea necesario */
+  }
+  
+  .form-container {
+      width: 50%;
+      margin: 0 auto;
+    }
+    
+    mat-form-field {
+      display: block;
+    }
+    
+    .button-container {
+      text-align: right;
+    }

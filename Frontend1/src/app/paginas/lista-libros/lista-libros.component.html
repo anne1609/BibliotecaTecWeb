@@ -27,7 +27,7 @@
 
       <!-- Definir el menú -->
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="editarLibro(libro)">
+        <button mat-menu-item (click)="editarLibro(libro._id)" routerLink="/editar-libro/{{ libro._id }}">
           <mat-icon>edit</mat-icon>
           <span>Editar</span>
         </button>
