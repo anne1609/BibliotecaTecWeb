@@ -13,7 +13,7 @@ export class ServicioService {
   }
 
   obtenerLibro(id: number){
-    const url = `${this.apiUrl}/${id}`;
+    const url = `/libro/${id}`;
     return this.http.get(url);
   }
   addBook(bookData: any): Observable<any> {

@@ -13,5 +13,12 @@
       "logLevel": "debug",
       "pathRewrite": {"^/apiDelete/" : ""}
     }
+    ,"/libro/*": {
+      "target": "http://127.0.0.1:7777/books",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/libro/" : ""}
+    }
   }
   
