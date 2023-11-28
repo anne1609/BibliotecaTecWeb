@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LibrosComponent } from './paginas/libros/libros.component';
@@ -39,6 +39,7 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
     InicioComponent
   ],
   imports: [
+    MatSnackBarModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

@@ -56,7 +56,7 @@ def get_books_by_category(category):
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/add/book', methods=['POST'])
+@app.route('/books', methods=['POST'])
 def add_book():
     book_data = request.json
     required_fields = ["autor", "categoria", "titulo", "subtitulo", "isbn13", "precio", "resumen", "image", "rating", "paginas", "idioma", "formato", "fecha_publicacion"]
