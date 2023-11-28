@@ -1,0 +1,28 @@
+/* book-detail.component.css */
+.book-card {
+    display: flex;
+    margin-left: 50px;
+    border-color: transparent;
+    box-shadow: none;
+    
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    padding: 16px;
+  }
+  
+  .book-image {
+    width: auto;
+    height: 100%;
+
+    margin-right: 20px; /* Espaciado entre la imagen y los detalles */
+  }
+  
+  .details {
+    flex: 1; /* Permite que los detalles ocupen el espacio restante */
+  }
+  
+  /* Puedes agregar más estilos según sea necesario */
+  

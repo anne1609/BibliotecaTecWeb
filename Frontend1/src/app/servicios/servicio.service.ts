@@ -6,9 +6,15 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class ServicioService {
+  private apiUrl ='/api/books';
   constructor(private http: HttpClient) { }
   obtenerLibros(){
-    return this.http.get('/api/books');
+    return this.http.get(this.apiUrl);
+  }
+
+  obtenerLibro(id: number){
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get(url);
   }
   addBook(bookData: any): Observable<any> {
     return this.http.post('/api/books', bookData);
