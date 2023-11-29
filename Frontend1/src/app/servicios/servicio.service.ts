@@ -23,7 +23,8 @@ export class ServicioService {
     return this.http.delete(`/apiDelete/${bookId}`);
   }
   
+  
   editar(id:any, libro:any):Observable<any>{
     return this.http.put(`/editar/${id}`,libro)
-  }
+}
 }

@@ -63,8 +63,22 @@ export class EditarLibroComponent {
         fecha_publicacion: this.libro.fecha_publicacion})
   }
   }
-  update(){
-
+  update() {
+    console.log('Update method called');
+    if (this.bookForm.valid) {
+      const id = Number(this.route.snapshot.paramMap.get('id'));
+      this.service.editar(id, this.bookForm.value).subscribe(
+        response => {
+          this.snackBar.open('Libro actualizado con éxito', '', { duration: 3000 });
+          this.location.back();
+        },
+        error => {
+          console.error('Error al actualizar el libro:', error);
+        }
+      );
+    } else {
+      this.snackBar.open('Por favor, rellena todos los campos requeridos', '', { duration: 3000 });
+    }
   }
 }
 
