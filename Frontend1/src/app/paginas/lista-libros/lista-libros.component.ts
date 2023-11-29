@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicioService } from '../../servicios/servicio.service';
 
+
 @Component({
   selector: 'app-lista-libros',
   templateUrl: './lista-libros.component.html',
-  styleUrl: './lista-libros.component.css'
+  styleUrl: './lista-libros.component.css',
+  
 })
 export class ListaLibrosComponent implements OnInit{
   filtro: string = '';

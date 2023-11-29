@@ -14,10 +14,12 @@
     <div class="card-content" >
       <img mat-card-avatar [src]=libro.image alt="Libro">
       <div class="text-content">
-        <mat-card-title routerLink="/lista-libros/{{ libro._id }}" >{{ libro.titulo }}</mat-card-title>
-        <mat-card-content>
-          <p>{{ libro.resumen }}</p>
-        </mat-card-content>
+        <div class="title-and-summary">
+          <mat-card-title routerLink="/lista-libros/{{ libro._id }}" >{{ libro.titulo }}</mat-card-title>
+          <mat-card-content>
+            <p>{{ libro.resumen }}</p>
+          </mat-card-content>
+        </div>
       </div>
 
       <!-- Agregar el botón del menú en la esquina superior derecha -->
