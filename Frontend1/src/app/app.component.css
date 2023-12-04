@@ -1,9 +1,7 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 .titulo {
-    font-family: 'Lobster', cursive;
-    font-size: 60px;  /* Ajusta el tamaño según tus necesidades */
+  font-family: 'Kaushan Script';
+  font-size: 34px !important;  /* Ajusta el tamaño según tus necesidades */
 }
 .mat-toolbar {
   background-color: #3F51B5;
