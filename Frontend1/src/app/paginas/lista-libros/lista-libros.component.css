@@ -9,9 +9,15 @@
   margin-top: 70px; 
   margin-bottom: 50px;
 }
+.filters {
+  display: flex;
+  
+}
 
 .search-title {
   margin-left: auto;
+  margin-right: 10px;
+  
 }
 
 .custom-mat-form-field {

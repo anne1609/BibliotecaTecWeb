@@ -27,5 +27,14 @@
       "logLevel": "debug",
       "pathRewrite": {"^/editar/" : ""}
     }
+
+    ,"/category/*": {
+      "target": "http://127.0.0.1:7777/books/category/",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/category/" : ""}
+    }
+   
   }
   

@@ -25,6 +25,14 @@ export class ServicioService {
   
   
   editar(id:any, libro:any):Observable<any>{
-    return this.http.put(`/editar/${id}`,libro)
-}
+    return this.http.put(`/editar/${id}`,libro);
+  }
+
+  obtenerLibrosPorCategoria(categoria: string){
+    return this.http.get(`/category/${categoria}`); 
+  }
+
+  obtenerCategorias(){
+    return this.http.get('/libro/categories');
+  }
 }

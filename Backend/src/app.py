@@ -87,7 +87,7 @@ def delete_book(id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route('/edit/book/<int:id>', methods=['PUT'])
+@app.route('/edit/book/<int:id>', methods=['PUT']) 
 def edit_book(id):
     try:
         updated_data = request.json
