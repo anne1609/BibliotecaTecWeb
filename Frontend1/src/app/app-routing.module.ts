@@ -6,6 +6,7 @@ import { ListaLibrosComponent } from './paginas/lista-libros/lista-libros.compon
 import { LibroComponent } from './elementos/libro/libro.component';
 import { EditarLibroComponent } from './elementos/editar-libro/editar-libro.component';
 import { InicioSesionComponent } from './paginas/inicio-sesion/inicio-sesion.component';
+import { RegistrarUsuarioComponent } from './paginas/registrar-usuario/registrar-usuario.component';
 
 const routes: Routes = [
   { path: 'registrar-libro', component: RegistrarLibroComponent },
@@ -14,8 +15,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/lista-libros', pathMatch: 'full' },
   { path: 'editar-libro/:id', component: EditarLibroComponent },
   { path: 'lista-libros/:id', component: LibroComponent },
-  { path: 'inicio-sesion', component: InicioSesionComponent }
-
+  { path: 'inicio-sesion', component: InicioSesionComponent },
+  { path: 'registrar-usuario', component: RegistrarUsuarioComponent }
 ];
 
 @NgModule({

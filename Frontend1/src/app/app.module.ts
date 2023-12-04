@@ -24,6 +24,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { InicioSesionComponent } from './paginas/inicio-sesion/inicio-sesion.component';
 import { MatSelectModule } from '@angular/material/select';
+import { RegistrarUsuarioComponent } from './paginas/registrar-usuario/registrar-usuario.component';
 
 
 
@@ -38,7 +39,8 @@ import { MatSelectModule } from '@angular/material/select';
     LibroComponent,
     EditarLibroComponent,
     ListaLibrosComponent,
-    InicioSesionComponent
+    InicioSesionComponent,
+    RegistrarUsuarioComponent
 
   ],
   imports: [
