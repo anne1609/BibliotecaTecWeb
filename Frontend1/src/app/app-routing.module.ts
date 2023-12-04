@@ -5,7 +5,7 @@ import { LibrosComponent } from './paginas/libros/libros.component';
 import { ListaLibrosComponent } from './paginas/lista-libros/lista-libros.component'
 import { LibroComponent } from './elementos/libro/libro.component';
 import { EditarLibroComponent } from './elementos/editar-libro/editar-libro.component';
-
+import { InicioSesionComponent } from './paginas/inicio-sesion/inicio-sesion.component';
 
 const routes: Routes = [
   { path: 'registrar-libro', component: RegistrarLibroComponent },
@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'lista-libros', component: ListaLibrosComponent },
   { path: '', redirectTo: '/lista-libros', pathMatch: 'full' },
   { path: 'editar-libro/:id', component: EditarLibroComponent },
-  { path: 'lista-libros/:id', component: LibroComponent }
-
+  { path: 'lista-libros/:id', component: LibroComponent },
+  { path: 'inicio-sesion', component: InicioSesionComponent }
 
 ];
 

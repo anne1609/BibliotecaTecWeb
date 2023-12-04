@@ -1,8 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.titulo {
+    font-family: 'Lobster', cursive;
+    font-size: 60px;  /* Ajusta el tamaño según tus necesidades */
+}
 .mat-toolbar {
-  background-color: #005187;
+  background-color: #3F51B5;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 100px;
+  /*margin-bottom: 100px;*/
   position: relative;
 }
 
@@ -31,14 +38,15 @@
   }
 }
 footer {
-  background-color: #005187; /* Fondo azul para el footer */
+  background-color: #3F51B5; /* Fondo azul para el footer */
   color: white; /* Texto blanco en el footer */
   text-align: center; /* Alinear el texto al centro */
   padding: 20px 0; /* Agregar espacio de relleno arriba y abajo */
-  margin-top: 100px; 
+ /* margin-top: 100px;*/ 
 }
 
 .footer-content {
   max-width: 1200px; /* Ancho máximo del contenido del footer */
   margin: 0 auto; /* Centrar el contenido del footer en la página */
 }
+
