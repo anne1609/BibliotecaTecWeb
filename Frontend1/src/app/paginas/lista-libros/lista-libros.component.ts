@@ -18,9 +18,14 @@ export class ListaLibrosComponent implements OnInit{
   ];*/
   
   libros:any;
+  categorias:any;
   constructor(private dialog: MatDialog, private productosService: ServicioService,) {}
 
   ngOnInit(){
+    this.obtenerLibros();
+    this.obtenerCategorias();
+  }
+  obtenerLibros(){
     this.productosService.obtenerLibros().subscribe(
       data => this.libros = data,
       error => console.log(error),
@@ -64,4 +69,19 @@ export class ListaLibrosComponent implements OnInit{
   }
   
 
+  obtenerCategorias() {
+    this.productosService.obtenerCategorias().subscribe(
+      data => this.categorias = data
+    )
+  }
+
+
+  filtrarPorCategoria(categoria: string){
+    this.productosService.obtenerLibrosPorCategoria(categoria).subscribe(
+      data => this.libros = data,
+      error => console.log(error),
+      () => console.log("FIN")
+    )
+    console.log(this.libros)
+  }
 }

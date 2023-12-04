@@ -22,7 +22,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -54,7 +54,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatToolbarModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

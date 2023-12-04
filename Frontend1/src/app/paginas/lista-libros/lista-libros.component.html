@@ -1,13 +1,30 @@
 <!-- lista-libros.component.html -->
 <div class="container">
-  <div class="search-title">
-    <mat-form-field class="custom-mat-form-field" appearance="fill">
-      <input matInput placeholder="Buscar libros " [(ngModel)]="filtro">
-      <button mat-button matSuffix (click)="filtrarLibro(filtro)">
-        <mat-icon>search</mat-icon>
-      </button>
-    </mat-form-field>
+  <div class="filters">
+    <div class="search-title">
+      <mat-form-field class="custom-mat-form-field" appearance="fill">
+        <input matInput placeholder="Buscar libros " [(ngModel)]="filtro">
+        <button mat-button matSuffix (click)="filtrarLibro(filtro)">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    
+    <div class="category-filter">
+      <mat-form-field>
+        <mat-label>Seleccionar categoria</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let categoria of categorias" [value]="categoria" (click)="filtrarPorCategoria(categoria)">
+            {{categoria}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+
   </div>
+  
+
 
   <mat-card *ngFor="let libro of libros" class="book-card">
 
