@@ -37,7 +37,12 @@
           <mat-card-content>
             <p></p>
             <p></p>
-            <p>{{ libro.rating }}</p>
+            <div class="stars">
+              <mat-icon *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" 
+                [class.filled]="i < libro.rating">
+                {{i < libro.rating ? 'star' : 'star_border'}}
+               </mat-icon>
+            </div>
             <p class="book-summary">{{ libro.resumen }}</p>
           </mat-card-content>
         </div>

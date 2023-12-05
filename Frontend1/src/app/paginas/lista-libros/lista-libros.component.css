@@ -86,3 +86,10 @@ mat-card-title, mat-card-content {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+mat-icon {
+  color: gray; /* color de las estrellas vacías */
+}
+
+mat-icon.filled {
+  color: orange; /* color de las estrellas llenas */
+}
