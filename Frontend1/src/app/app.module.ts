@@ -25,10 +25,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { InicioSesionComponent } from './paginas/inicio-sesion/inicio-sesion.component';
 import { MatSelectModule } from '@angular/material/select';
 import { RegistrarUsuarioComponent } from './paginas/registrar-usuario/registrar-usuario.component';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import { LOCALE_ID } from '@angular/core';
 
-
-
-
+registerLocaleData(localeEs);
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { RegistrarUsuarioComponent } from './paginas/registrar-usuario/registrar
     MatSidenavModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

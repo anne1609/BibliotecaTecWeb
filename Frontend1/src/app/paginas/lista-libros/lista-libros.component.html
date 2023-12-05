@@ -33,8 +33,12 @@
       <div class="text-content">
         <div class="title-and-summary">
           <mat-card-title routerLink="/lista-libros/{{ libro._id }}" >{{ libro.titulo }}</mat-card-title>
+          <mat-card-subtitle>{{libro.autor}} | {{libro.fecha_publicacion | date:'d'}} de {{libro.fecha_publicacion | date:'MMMM'}} de {{libro.fecha_publicacion | date:'yyyy'}}</mat-card-subtitle>
           <mat-card-content>
-            <p>{{ libro.resumen }}</p>
+            <p></p>
+            <p></p>
+            <p>{{ libro.rating }}</p>
+            <p class="book-summary">{{ libro.resumen }}</p>
           </mat-card-content>
         </div>
       </div>
