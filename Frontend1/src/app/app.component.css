@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 .titulo {
   font-family: 'Kaushan Script';
-  font-size: 34px !important;  /* Ajusta el tamaño según tus necesidades */
+  font-size: 34px !important;  
 }
 .mat-toolbar {
   background-color: #3F51B5;
   display: flex;
   justify-content: space-around;
   /*margin-bottom: 100px;*/
-  position: relative;
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000; 
 }
 
 

@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  
 }
 .full-width {
     width: 100%;
@@ -17,6 +18,6 @@
     margin-top: 15px ; /* Ajusta este valor según tus necesidades */
 }
 
-::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-    color: green;  /* Cambia 'green' al color que prefieras para el texto */
+.fixed-width {
+    width: 560px ;
 }
