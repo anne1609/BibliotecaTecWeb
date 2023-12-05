@@ -71,11 +71,11 @@ mat-card-title {
 }
 
 mat-card-title:hover {
-  color:  #cccccc ; /* Cambia esto al color que prefieras cuando el cursor pasa por encima */
+  color:  #3F51B5 /* Cuando el cursor pasa por encima */
 }
 mat-card-title, mat-card-content {
   
-    padding: 0 ; /* Restablece el padding a 0 */
+    padding: 0 ; 
   
 }
 

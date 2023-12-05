@@ -58,8 +58,8 @@ export class ListaLibrosComponent implements OnInit{
   }
 
   filtrarLibro(filtro: string) {
-    const librosFiltrados = this.libros.filter((libro: { titulo: string } & { descripcion?: string } & { imagen?: string }) => {
-      if (libro.titulo.toLowerCase().includes(filtro.toLowerCase())) {
+    const librosFiltrados = this.libros.filter((libro: { titulo: string, autor: string } & { descripcion?: string } & { imagen?: string }) => {
+      if (libro.titulo.toLowerCase().includes(filtro.toLowerCase()) || libro.autor.toLowerCase().includes(filtro.toLowerCase())) {
         return true;
       } else {
         return false;
