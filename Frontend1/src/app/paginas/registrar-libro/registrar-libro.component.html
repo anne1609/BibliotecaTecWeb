@@ -1,6 +1,6 @@
 <div class="form-container">
     <h2 class="form-title">Registra un nuevo libro</h2>
-    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="form-grid">
         <mat-form-field appearance="fill">
         <mat-label>Nombre del libro</mat-label>
         <input matInput formControlName="titulo" required>
@@ -22,8 +22,12 @@
         </mat-form-field>
     
         <mat-form-field appearance="fill">
-        <mat-label>Puntuación</mat-label>
-        <input matInput formControlName="rating" required>
+          <mat-label>Puntuación (De 1 hasta maximo 5)</mat-label>
+          <mat-select formControlName="rating" required>
+            <mat-option *ngFor="let number of [1, 2, 3, 4, 5]" [value]="number">
+              {{number}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
     
         <mat-form-field appearance="fill">
@@ -57,16 +61,21 @@
         </mat-form-field>
     
         <mat-form-field appearance="fill">
-        <mat-label>Formato</mat-label>
-        <input matInput formControlName="formato" required>
+          <mat-label>Formato</mat-label>
+          <mat-select formControlName="formato" required>
+            <mat-option value="Tapa dura">Tapa dura</mat-option>
+            <mat-option value="Tapa blanda">Tapa blanda</mat-option>
+          </mat-select>
         </mat-form-field>
     
         <mat-form-field appearance="fill">
-        <mat-label>Fecha de publicación</mat-label>
-        <input matInput formControlName="fecha_publicacion" required>
-        </mat-form-field>
+            <mat-label>Fecha de publicación</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fecha_publicacion" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
     </form>
     <div class="button-container">
-        <button mat-raised-button color="primary" (click)="onSubmit()">Registrar</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Registrar libro</button>
       </div>
 </div>

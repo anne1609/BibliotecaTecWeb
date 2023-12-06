@@ -63,11 +63,13 @@ button.mat-icon-button {
   text-align: left;
 }
 
-
+.disponible {
+  color: green; 
+}
 
 mat-card-title {
   cursor: pointer;
-  color: black; /* Cambia esto al color que prefieras */
+  color: black;  
 }
 
 mat-card-title:hover {

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServicioService } from '../../servicios/servicio.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./registrar-libro.component.css']
 })
 export class RegistrarLibroComponent implements OnInit {
-  constructor(private service: ServicioService, private snackBar: MatSnackBar , private location: Location) { }
+  constructor(private service: ServicioService, private snackBar: MatSnackBar , private location: Location,private datePipe: DatePipe) { }
   bookForm = new FormGroup({
     titulo: new FormControl('', Validators.required),
     autor: new FormControl('', Validators.required),
@@ -31,7 +32,9 @@ export class RegistrarLibroComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
+  
     const bookData = this.bookForm.value;
+    bookData.fecha_publicacion = this.datePipe.transform(bookData.fecha_publicacion, 'yyyy-MM-dd');
     this.service.addBook(bookData).subscribe(
       response => {
         console.log('Book added successfully:', response);

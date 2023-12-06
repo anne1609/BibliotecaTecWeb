@@ -28,6 +28,10 @@ import { RegistrarUsuarioComponent } from './paginas/registrar-usuario/registrar
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { LOCALE_ID } from '@angular/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 
 registerLocaleData(localeEs);
 
@@ -61,9 +65,12 @@ registerLocaleData(localeEs);
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
+  providers: 
+  [{ provide: LOCALE_ID, useValue: 'es' }, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
