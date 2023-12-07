@@ -1,21 +1,30 @@
 <!-- book-detail.component.html -->
+<div class="card-container">
 <mat-card class="book-card">
     <div class="card-content">
       <img mat-card-avatar [src]="libro.image" alt="Libro" class="book-image">
   
       <div class="details">
         <mat-card-header>
-          <mat-card-title>{{ libro.titulo }}</mat-card-title>
-          <mat-card-subtitle>{{ libro.autor }}</mat-card-subtitle>
+          <div class="header-content">
+          <mat-card-title class="book-title">{{ libro.titulo }}</mat-card-title>
+        </div>
         </mat-card-header>
+        <div class="spacer"></div>
   
         <mat-card-content>
+          <div class="stars">
+            <mat-icon *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" 
+              [class.filled]="i < libro.rating">
+              {{i < libro.rating ? 'star' : 'star_border'}}
+             </mat-icon>
+          </div>
+          <p><strong>Autor:</strong> {{ libro.autor }}</p>
             <p><strong>Subtítulo:</strong> {{ libro.subtitulo }}</p>
             <p><strong>Categoría:</strong> {{ libro.categoria }}</p>
             <p><strong>ISBN:</strong> {{ libro.isbn13 }}</p>
             <p><strong>Precio:</strong> {{ libro.precio }}</p>
             <p><strong>Resumen:</strong> {{ libro.resumen }}</p>
-            <p><strong>Rating:</strong> {{ libro.rating }}</p>
             <p><strong>Páginas:</strong> {{ libro.paginas }}</p>
             <p><strong>Idioma:</strong> {{ libro.idioma }}</p>
             <p><strong>Formato:</strong> {{ libro.formato }}</p>
@@ -30,4 +39,5 @@
       </div>
     </div>
   </mat-card>
+</div>
   

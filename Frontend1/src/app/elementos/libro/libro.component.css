@@ -1,33 +1,62 @@
 .book-card {
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
+  align-items: center;
   border-color: transparent;
   box-shadow: none;
   margin-top: 130px;
   margin-bottom: 170px;
-  max-width: 800px; /* Ajusta el valor según tus necesidades */
+  width: 950px; 
+  flex-direction: column; 
+  margin-left: 19%;
+  margin-right: 30%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3),
+              -5px -5px 15px rgba(255, 255, 255, 0.7);
+}
+
+
+.book-image {
+  margin-top: 45px; 
 }
 
 .card-content {
   display: flex;
-  align-items: center; /* Alinear verticalmente */
+  flex-direction: row; 
+  align-items: normal;  /* Alinear verticalmente */
   padding: 16px;
 }
 
-.book-image {
-  width: auto;
-  height: 100%;
-  margin-right: 20px; /* Espaciado entre la imagen y los detalles */
-}
 
-.details {
-  flex: 1; /* Permite que los detalles ocupen el espacio restante */
-}
+
 
 .mat-mdc-card-avatar {
-  width: 30% !important;
-  height: 350px !important;
-  object-fit: cover !important;
-  border-radius: 6%;
+  width: 280px !important;
+  height: 380px !important;
+  border-radius: 2%;
+  margin-right: 20px;
+}
+
+mat-icon {
+  color: gray; /* color de las estrellas vacías */
+}
+
+mat-icon.filled {
+  color: orange; /* color de las estrellas llenas */
+}
+
+
+mat-card-header {
+  border-bottom: 2px solid gray;
+  padding-bottom: 5px;
+  margin-top: 20px;
+ 
+}
+.spacer {
+  margin-top: 15px; 
+}
+
+button.mat-button {
+  background-color: #3f51b5; /* Color de relleno */
+  color: white; /* Color del texto */
+  margin-left: 10px; /* Espacio entre los botones */
 }
