@@ -55,8 +55,4 @@ mat-card-header {
   margin-top: 15px; 
 }
 
-button.mat-button {
-  background-color: #3f51b5; /* Color de relleno */
-  color: white; /* Color del texto */
-  margin-left: 10px; /* Espacio entre los botones */
-}
+
