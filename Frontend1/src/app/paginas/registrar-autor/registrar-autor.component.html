@@ -1,43 +1,38 @@
 <div class="background">
     <mat-card class="fixed-width">
         <mat-card-header>
-            <mat-card-title>Regístrate como Lector</mat-card-title>
+            <mat-card-title>Regístrate como autor</mat-card-title>
         </mat-card-header>
         <div class="space">
             <mat-card-content>
-                <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-grid">
+                <form [formGroup]="authorForm" (ngSubmit)="onSubmit()" class="form-grid">
                     <mat-form-field class="full-width">
                         <mat-label>Nombre completo </mat-label>
                         <input matInput formControlName="Nombre" />
-                        <mat-error *ngIf="userForm.get('Nombre')?.invalid">{{ getFullNameErrorMessage() }}</mat-error>
+                        <mat-error *ngIf="authorForm.get('Nombre')?.invalid">{{ getFullNameErrorMessage() }}</mat-error>
                     </mat-form-field>
                     <mat-form-field class="full-width">
                         <mat-label>Correo electrónico </mat-label>
                         <input matInput placeholder="alguien@example.com" formControlName="Correo" />
-                        <mat-error *ngIf="userForm.get('Correo')?.invalid">{{ getErrorMessage() }}</mat-error>
+                        <mat-error *ngIf="authorForm.get('Correo')?.invalid">{{ getErrorMessage() }}</mat-error>
                     </mat-form-field>
                     <mat-form-field class="full-width">
                         <mat-label>Contraseña </mat-label>
                         <input matInput [type]="hide ? 'Contrasenia' : 'text'" formControlName="Contrasenia" />
-                        <mat-error *ngIf="userForm.get('Contrasenia')?.invalid">{{ getPasswordErrorMessage() }}</mat-error>
+                        <mat-error *ngIf="authorForm.get('Contrasenia')?.invalid">{{ getPasswordErrorMessage() }}</mat-error>
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
                         </button>
                     </mat-form-field>
                     <mat-form-field class="full-width">
                         <mat-label>Número de Tarjeta </mat-label>
-                        <input matInput formControlName="NumeroTarjeta" />
-                        <mat-error *ngIf="userForm.get('NumeroTarjeta')?.invalid">{{ getCardNumberErrorMessage() }}</mat-error>
+                        <input matInput formControlName="DireccionOficina" />
+                        <mat-error *ngIf="authorForm.get('DireccionOficina')?.invalid">{{ getWorkPlaceErrorMessage() }}</mat-error>
                     </mat-form-field>
                     <mat-form-field class="full-width">
                         <mat-label>Fecha de Vencimiento </mat-label>
-                        <input matInput placeholder="MM/AA" formControlName="FechaTarjeta" />
-                        <mat-error *ngIf="userForm.get('FechaTarjeta')?.invalid">{{ getCardExpiryDateErrorMessage() }}</mat-error>
-                    </mat-form-field>
-                    <mat-form-field class="full-width">
-                        <mat-label>Código de Seguridad </mat-label>
-                        <input matInput formControlName="CodigoTarjeta" />
-                        <mat-error *ngIf="userForm.get('CodigoTarjeta')?.invalid">{{ getCardSecurityCodeErrorMessage() }}</mat-error>
+                        <input matInput placeholder="MM/AA" formControlName="NumeroCuentaBanco" />
+                        <mat-error *ngIf="authorForm.get('NumeroCuentaBanco')?.invalid">{{ getBankAccountErrorMessage() }}</mat-error>
                     </mat-form-field>
                     <mat-card-actions align="end">
                         <button mat-raised-button color="primary" type="submit">Regístrate</button>

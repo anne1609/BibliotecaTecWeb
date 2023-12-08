@@ -35,4 +35,14 @@ export class ServicioService {
   obtenerCategorias(){
     return this.http.get('/libro/categories');
   }
+  //Users
+  addUserLector(userData: any): Observable<any> {
+    console.log("ESTOY AQUI");
+    return this.http.post('/api/users', userData);
+  }
+  addUserAuthor(userData: any): Observable<any> {
+    console.log("ESTOY AQUI");
+    return this.http.post('/api/authors', userData);
+  }
+  
 }

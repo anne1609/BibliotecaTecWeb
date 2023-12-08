@@ -1,12 +1,15 @@
 from flask import *
 import json, time
 from pymongo import MongoClient
+import bcrypt
+import uuid
 
 app = Flask(__name__)
 
 client = MongoClient("mongodb+srv://silpancho:silpancho@silpancho.paqmjpx.mongodb.net")
 db = client.SilDB
 collection = db.biblioteca
+usuarios = db.Usuarios
 
 @app.before_request
 def log_request_info():
@@ -102,5 +105,62 @@ def edit_book(id):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+
+
+
+    
+@app.route('/users', methods=['POST'])
+def add_lector():
+    data = request.json
+    if all(k in data for k in ["Nombre", "Correo", "Contrasenia", "NumeroTarjeta", "FechaTarjeta", "CodigoTarjeta"]):
+        hashed_password = bcrypt.hashpw(data['Contrasenia'].encode('utf-8'), bcrypt.gensalt())
+        user_id = str(uuid.uuid4())
+        lector_document = {
+            "_id": user_id,
+            "nombre": data["Nombre"],
+            "correo": data["Correo"],
+            "contrasenia": hashed_password,
+            "informacionTarjeta": {
+                "numero": data["NumeroTarjeta"],
+                "fechaVencimiento": data["FechaTarjeta"],
+                "codigoSeguridad": data["CodigoTarjeta"]
+            },
+            "tipo": "lector"
+        }
+        usuarios.insert_one(lector_document)
+        return jsonify({"mensaje": "Lector registrado exitosamente"}), 201
+    else:
+        return jsonify({"error": "Faltan datos necesarios para el registro"}), 400
+
+@app.route('/authors', methods=['POST'])
+def add_author():
+    data = request.json
+    if all(k in data for k in ["Nombre", "Correo", "Contrasenia", "DireccionOficina", "NumeroCuentaBanco"]):
+        hashed_password = bcrypt.hashpw(data['Contrasenia'].encode('utf-8'), bcrypt.gensalt())
+        user_id = str(uuid.uuid4())
+        lector_document = {
+            "_id": user_id,
+            "nombre": data["Nombre"],
+            "correo": data["Correo"],
+            "contrasenia": hashed_password,
+            "oficina":data["DireccionOficina"],
+            "informacionBancaria": {
+                "numeroCuentaBanco": data["NumeroCuentaBanco"]
+            },
+            "tipo": "autor"
+        }
+        usuarios.insert_one(lector_document)
+        return jsonify({"mensaje": "Lector registrado exitosamente"}), 201
+    else:
+        return jsonify({"error": "Faltan datos necesarios para el registro"}), 400
+
+
+
+
+
+
+
 if __name__ == "__main__":
     app.run(port=7777, debug=True)
+

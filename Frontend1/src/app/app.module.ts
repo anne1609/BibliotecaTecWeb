@@ -32,6 +32,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
+import { RegistrarAutorComponent } from './paginas/registrar-autor/registrar-autor.component';
 
 registerLocaleData(localeEs);
 
@@ -45,7 +46,8 @@ registerLocaleData(localeEs);
     EditarLibroComponent,
     ListaLibrosComponent,
     InicioSesionComponent,
-    RegistrarUsuarioComponent
+    RegistrarUsuarioComponent,
+    RegistrarAutorComponent
 
   ],
   imports: [

@@ -1,0 +1,22 @@
+.background {
+    background: url('/assets/images/26.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.full-width {
+    width: 100%;
+}
+
+.space {
+    margin-top: 15px ; 
+}
+
+.fixed-width {
+    width: 560px ;
+}
