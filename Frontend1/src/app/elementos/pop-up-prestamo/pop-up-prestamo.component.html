@@ -1,0 +1,20 @@
+<!-- pop-up-prestamo.component.html -->
+<h2>Selecciona las fechas de préstamo</h2>
+<mat-form-field appearance="fill">
+  <mat-label>Fecha de inicio</mat-label>
+  <input matInput [matDatepicker]="picker1" [formControl]="startDate">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Fecha fin</mat-label>
+  <input matInput [matDatepicker]="picker2" [formControl]="endDate">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
+</mat-form-field>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrar()">Cancelar</button>
+  <button mat-button (click)="confirmar()">Confirmar</button>
+</div>

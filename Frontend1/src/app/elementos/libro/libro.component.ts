@@ -5,6 +5,8 @@ import { User, UserServiceService } from '../../servicios/user-service.service';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { PopUpPrestamoComponent } from '../pop-up-prestamo/pop-up-prestamo.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-libro',
@@ -23,7 +25,8 @@ export class LibroComponent {
     private route: ActivatedRoute, 
     private snackBar: MatSnackBar, 
     private userService: UserServiceService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog 
     ){
   }
   ngOnInit(): void {
@@ -65,28 +68,40 @@ export class LibroComponent {
     }
   }
   prestarLibro(libro:any){
-    //Recuperando info necesaria para escribir en la BD
-    let idLibro = libro._id;
-    let nombreLibro = libro.titulo;
-    let idUsuario = this.usuario?._id;
-    //fecha inicio
-    //fecha fin
-    let data = {"idLibro": idLibro, "idUsuario": idUsuario, "nombreLibro": nombreLibro};
-    this.libroService.borrowBook(data).subscribe( //aca ya le envio el data
-      response => {
-        console.log('Book borrowed successfully:', response);
-        this.snackBar.open('Libro prestado exitosamente', 'Cerrar', {
-          duration: 500,
-        }).afterDismissed().subscribe(() => {
-          this.router.navigate(['/lista-libros']); 
-        });
-      },
-      error => {
-        console.error('Error deleting book:', error);
-        this.snackBar.open('Este libro no esta disponible', 'Cerrar', {
-          duration: 500,
-        })
+    const dialogRef = this.dialog.open(PopUpPrestamoComponent);
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Recuperando info necesaria para escribir en la BD
+        let idLibro = libro._id;
+        let nombreLibro = libro.titulo;
+        let idUsuario = this.usuario?._id;
+        let fechaInicio = result.startDate; // fecha inicio
+        let fechaFin = result.endDate; // fecha fin
+        let data = {
+          "idLibro": idLibro, 
+          "idUsuario": idUsuario, 
+          "nombreLibro": nombreLibro,
+          "fechaInicio": fechaInicio,
+          "fechaFin": fechaFin
+        };
+        this.libroService.borrowBook(data).subscribe( //aca ya le envio el data
+          response => {
+            console.log('Book borrowed successfully:', response);
+            this.snackBar.open('Libro prestado exitosamente', 'Cerrar', {
+              duration: 500,
+            }).afterDismissed().subscribe(() => {
+              this.router.navigate(['/lista-libros']); 
+            });
+          },
+          error => {
+            console.error('Error deleting book:', error);
+            this.snackBar.open('Este libro no esta disponible', 'Cerrar', {
+              duration: 500,
+            })
+          }
+        );
       }
-    );
+    });
   }
 }

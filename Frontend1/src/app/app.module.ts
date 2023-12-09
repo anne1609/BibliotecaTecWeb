@@ -34,6 +34,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { RegistrarAutorComponent } from './paginas/registrar-autor/registrar-autor.component';
 import { RegistrarComponent } from './paginas/registrar/registrar.component';
+import { PopUpPrestamoComponent } from './elementos/pop-up-prestamo/pop-up-prestamo.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 registerLocaleData(localeEs);
 
@@ -49,7 +51,8 @@ registerLocaleData(localeEs);
     InicioSesionComponent,
     RegistrarUsuarioComponent,
     RegistrarAutorComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    PopUpPrestamoComponent
 
   ],
   imports: [
@@ -71,7 +74,8 @@ registerLocaleData(localeEs);
     MatSidenavModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: 
   [{ provide: LOCALE_ID, useValue: 'es' }, DatePipe],
