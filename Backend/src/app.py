@@ -3,6 +3,7 @@ import json, time
 from pymongo import MongoClient
 import bcrypt
 import uuid
+from bson.json_util import dumps
 
 app = Flask(__name__)
 
@@ -155,11 +156,15 @@ def add_author():
     else:
         return jsonify({"error": "Faltan datos necesarios para el registro"}), 400
 
-
-
-
-
-
+@app.route('/login', methods=['POST'])
+def login_user():
+    data = request.json
+    user = usuarios.find_one({"correo": data["Correo"]})
+    if user and bcrypt.checkpw(data['Contrasenia'].encode('utf-8'), user['contrasenia']):
+        del user['contrasenia']
+        return jsonify(dumps(user)), 200
+    else:
+        return jsonify({"error": "Las credenciales son incorrectas"}), 401
 
 if __name__ == "__main__":
     app.run(port=7777, debug=True)

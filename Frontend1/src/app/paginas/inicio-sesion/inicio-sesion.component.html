@@ -5,23 +5,25 @@
         </mat-card-header>
         <div class="space">
             <mat-card-content>
-                <mat-form-field class="full-width">
-                    <mat-label>Correo electrónico  </mat-label>
-                    <input matInput placeholder="alguien@example.com" [formControl]="email" />
-                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <mat-label>Contraseña </mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" />
-                    <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-grid">
+                    <mat-form-field class="full-width">
+                        <mat-label>Correo electrónico</mat-label>
+                        <input matInput placeholder="alguien@example.com" formControlName="Correo" />
+                        <mat-error *ngIf="loginForm.get('Correo')?.invalid">{{ getErrorMessage() }}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="Contrasenia" />
+                        <mat-error *ngIf="loginForm.get('Contrasenia')?.invalid">{{ getPasswordErrorMessage() }}</mat-error>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <mat-card-actions align="end">
+                        <button mat-raised-button color="primary" type="submit">Iniciar sesión</button>
+                    </mat-card-actions>
+                </form>
             </mat-card-content>
         </div>
-        <mat-card-actions align="end">
-            <button mat-raised-button color="primary">Iniciar sesión</button>
-        </mat-card-actions>
     </mat-card>
 </div>

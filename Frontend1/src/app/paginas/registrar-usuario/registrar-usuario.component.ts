@@ -4,6 +4,7 @@ import { ServicioService } from '../../servicios/servicio.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common'; // Import Location
 import { DatePipe } from '@angular/common'; // Import DatePipe
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -12,7 +13,12 @@ import { DatePipe } from '@angular/common'; // Import DatePipe
   encapsulation: ViewEncapsulation.None,
 })
 export class RegistrarUsuarioComponent {
-  constructor(private service: ServicioService, private snackBar: MatSnackBar, private location: Location, private datePipe: DatePipe) { }
+  constructor(
+    private service: ServicioService, 
+    private snackBar: MatSnackBar, 
+    private location: Location, 
+    private datePipe: DatePipe,   
+    private router: Router) { }
 
   userForm = new FormGroup({
     Nombre: new FormControl('', Validators.required),
@@ -80,9 +86,9 @@ export class RegistrarUsuarioComponent {
         console.log('User added successfully:', response);
         this.userForm.reset();
         this.snackBar.open('Usuario registrado con éxito', 'Cerrar', {
-          duration: 3000,
+          duration: 500,
         }).afterDismissed().subscribe(() => {
-          this.location.back(); 
+          this.router.navigate(['/inicio-sesion']); 
         });
       },
       error => {

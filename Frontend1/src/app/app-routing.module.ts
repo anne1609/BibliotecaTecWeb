@@ -8,6 +8,7 @@ import { EditarLibroComponent } from './elementos/editar-libro/editar-libro.comp
 import { InicioSesionComponent } from './paginas/inicio-sesion/inicio-sesion.component';
 import { RegistrarUsuarioComponent } from './paginas/registrar-usuario/registrar-usuario.component';
 import { RegistrarAutorComponent } from './paginas/registrar-autor/registrar-autor.component';
+import { RegistrarComponent } from './paginas/registrar/registrar.component';
 
 const routes: Routes = [
   { path: 'registrar-libro', component: RegistrarLibroComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'lista-libros/:id', component: LibroComponent },
   { path: 'inicio-sesion', component: InicioSesionComponent },
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
-  { path: 'registrar-autor', component: RegistrarAutorComponent }
+  { path: 'registrar-autor', component: RegistrarAutorComponent },
+  {path: 'registrar', component: RegistrarComponent}
 ];
 
 @NgModule({

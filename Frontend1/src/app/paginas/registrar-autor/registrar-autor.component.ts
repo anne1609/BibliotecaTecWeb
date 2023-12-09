@@ -2,8 +2,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ServicioService } from '../../servicios/servicio.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Location } from '@angular/common'; // Import Location
-import { DatePipe } from '@angular/common'; // Import DatePipe
+import { Location } from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-autor',
@@ -12,7 +13,13 @@ import { DatePipe } from '@angular/common'; // Import DatePipe
   encapsulation: ViewEncapsulation.None,
 })
 export class RegistrarAutorComponent {
-  constructor(private service: ServicioService, private snackBar: MatSnackBar, private location: Location, private datePipe: DatePipe) { }
+  constructor(
+    private service: ServicioService, 
+    private snackBar: MatSnackBar, 
+    private location: Location, 
+    private datePipe: DatePipe,
+    private router: Router
+    ) { }
 
   authorForm = new FormGroup({
     Nombre: new FormControl('', Validators.required),
@@ -73,7 +80,7 @@ export class RegistrarAutorComponent {
         this.snackBar.open('Usuario registrado con éxito', 'Cerrar', {
           duration: 3000,
         }).afterDismissed().subscribe(() => {
-          this.location.back(); 
+          this.router.navigate(['/inicio-sesion']); 
         });
       },
       error => {

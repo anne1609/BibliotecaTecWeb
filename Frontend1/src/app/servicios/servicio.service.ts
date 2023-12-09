@@ -44,5 +44,8 @@ export class ServicioService {
     console.log("ESTOY AQUI");
     return this.http.post('/api/authors', userData);
   }
+  loginUser(userData: any): Observable<any>{
+    return this.http.post('/api/login', userData);
+  }
   
 }

@@ -25,12 +25,12 @@
                         </button>
                     </mat-form-field>
                     <mat-form-field class="full-width">
-                        <mat-label>Número de Tarjeta </mat-label>
+                        <mat-label>Direccion de Oficina: </mat-label>
                         <input matInput formControlName="DireccionOficina" />
                         <mat-error *ngIf="authorForm.get('DireccionOficina')?.invalid">{{ getWorkPlaceErrorMessage() }}</mat-error>
                     </mat-form-field>
                     <mat-form-field class="full-width">
-                        <mat-label>Fecha de Vencimiento </mat-label>
+                        <mat-label>Numero de cuenta de banco </mat-label>
                         <input matInput placeholder="MM/AA" formControlName="NumeroCuentaBanco" />
                         <mat-error *ngIf="authorForm.get('NumeroCuentaBanco')?.invalid">{{ getBankAccountErrorMessage() }}</mat-error>
                     </mat-form-field>
