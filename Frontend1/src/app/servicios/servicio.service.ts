@@ -35,6 +35,10 @@ export class ServicioService {
   obtenerCategorias(){
     return this.http.get('/libro/categories');
   }
+  borrowBook(data:any){
+    return this.http.post('/api/borrow', data);
+
+  }
   //Users
   addUserLector(userData: any): Observable<any> {
     console.log("ESTOY AQUI");

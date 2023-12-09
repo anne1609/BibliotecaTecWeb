@@ -15,6 +15,7 @@ export class LibroComponent {
   libro: any;
   esAutor: boolean = false;
   esLector: boolean = false;
+  usuario: User | null = null;
   private userSubscription: Subscription = new Subscription;
 
   constructor(
@@ -34,6 +35,7 @@ export class LibroComponent {
         let userObj: User | null = null;
         if (typeof user === 'string') {
           userObj = JSON.parse(user);
+          this.usuario = userObj;
         } else {
           userObj = user;
         } 
@@ -61,5 +63,30 @@ export class LibroComponent {
         }
       );
     }
+  }
+  prestarLibro(libro:any){
+    //Recuperando info necesaria para escribir en la BD
+    let idLibro = libro._id;
+    let nombreLibro = libro.titulo;
+    let idUsuario = this.usuario?._id;
+    //fecha inicio
+    //fecha fin
+    let data = {"idLibro": idLibro, "idUsuario": idUsuario, "nombreLibro": nombreLibro};
+    this.libroService.borrowBook(data).subscribe( //aca ya le envio el data
+      response => {
+        console.log('Book borrowed successfully:', response);
+        this.snackBar.open('Libro prestado exitosamente', 'Cerrar', {
+          duration: 500,
+        }).afterDismissed().subscribe(() => {
+          this.router.navigate(['/lista-libros']); 
+        });
+      },
+      error => {
+        console.error('Error deleting book:', error);
+        this.snackBar.open('Este libro no esta disponible', 'Cerrar', {
+          duration: 500,
+        })
+      }
+    );
   }
 }

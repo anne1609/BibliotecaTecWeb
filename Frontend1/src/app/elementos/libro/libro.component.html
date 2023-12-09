@@ -39,7 +39,7 @@
             <p><strong>Fecha de publicación:</strong> {{ libro.fecha_publicacion }}</p>
         </mat-card-content>
         <mat-card-actions align="end">
-          <button *ngIf="esLector" mat-button>Prestarme</button>
+          <button *ngIf="esLector" mat-button (click)="prestarLibro(libro)">Prestarme</button>
           <button *ngIf="esLector" mat-button>Agregar a deseos</button>
           <button *ngIf="esAutor" mat-button (click)="eliminarLibro(libro)">Eliminar</button>
           <button *ngIf="esAutor" mat-button routerLink="/editar-libro/{{ libro._id }}">Editar</button>

@@ -168,7 +168,23 @@ def login_user():
 
 @app.route('/borrow', methods=['POST'])
 def borrow_book():
-    return 0
+    data = request.json
+    book_id = data.get('idLibro')
+    user_id = data.get('idUsuario')
+    book_name = data.get('nombreLibro') 
+    book = db.biblioteca.find_one({'_id': book_id})
+    print(int(book['cantidad']))
+    if book and int(book['cantidad']) > 0:
+        db.biblioteca.update_one({'_id': book_id}, {'$inc': {'cantidad': -1}})
+        prestamo = {
+            'idLibro': book_id,
+            'idUsuario': user_id,
+            'nombreLibro': book_name 
+        }
+        db.Prestamos.insert_one(prestamo)
+        return jsonify({'message': 'Préstamo registrado con éxito'}), 200
+    else:
+        return jsonify({'error': 'No hay copias suficientes para prestar'}), 400
 
 if __name__ == "__main__":
     app.run(port=7777, debug=True)
