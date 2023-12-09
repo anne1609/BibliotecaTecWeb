@@ -38,6 +38,4 @@ export class UserServiceService {
   clearUser() {
     this.userSubject.next(null);
   }
-
-  // ... otros métodos relacionados con el usuario
 }

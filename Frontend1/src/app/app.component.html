@@ -1,21 +1,18 @@
-
 <mat-toolbar color="primary">
-    <span class="titulo">Biblioteca online</span>
-    <div class="navbar-links">
-      <a routerLink="/inicio-sesion" class="navbar-link">Iniciar sesión</a>
-      <a routerLink="/registrar" class="navbar-link">Regístrate</a>
-      <a routerLink="/lista-libros" class="navbar-link">Libros</a>
-      <a routerLink="/registrar-libro" class="navbar-link">Registrar libro</a>
-      
-   
-    </div>
-  </mat-toolbar>
-  <div class="content">
-    <router-outlet></router-outlet>
+  <span class="titulo">Biblioteca online</span>
+  <div class="navbar-links">
+    <a *ngIf="!usuarioAutenticado" routerLink="/inicio-sesion" class="navbar-link">Iniciar sesión</a>
+    <a *ngIf="!usuarioAutenticado" routerLink="/registrar" class="navbar-link">Regístrate</a>
+    <a *ngIf="usuarioAutenticado && tipoUsuario === 'lector'" routerLink="/lista-libros" class="navbar-link">Libros</a>
+    <a *ngIf="usuarioAutenticado && tipoUsuario === 'autor'" routerLink="/registrar-libro" class="navbar-link">Registrar libro</a>
   </div>
-  
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2023 Biblioteca Online. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2023 Biblioteca Online. Todos los derechos reservados.</p>
+  </div>
+</footer>

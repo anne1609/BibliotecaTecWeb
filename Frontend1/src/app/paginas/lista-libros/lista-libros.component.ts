@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicioService } from '../../servicios/servicio.service';
+import { UserServiceService } from '../../servicios/user-service.service';
 
 
 @Component({
@@ -19,7 +20,11 @@ export class ListaLibrosComponent implements OnInit{
   
   libros:any;
   categorias:any;
-  constructor(private dialog: MatDialog, private productosService: ServicioService,) {}
+  constructor(
+    private dialog: MatDialog, 
+    private productosService: ServicioService,
+    private userService: UserServiceService,
+    ) {}
 
   ngOnInit(){
     this.obtenerLibros();
@@ -28,10 +33,8 @@ export class ListaLibrosComponent implements OnInit{
   obtenerLibros(){
     this.productosService.obtenerLibros().subscribe(
       data => this.libros = data,
-      error => console.log(error),
-      () => console.log("FIN")
+      error => console.log(error)
     )
-    console.log(this.libros)
   }
 
   editarLibro(libro: any) {
@@ -52,8 +55,7 @@ export class ListaLibrosComponent implements OnInit{
     }
     this.productosService.obtenerLibros().subscribe(
       data => this.libros = data,
-      error => console.log(error),
-      () => console.log("FIN")
+      error => console.log(error)
     )
   }
 

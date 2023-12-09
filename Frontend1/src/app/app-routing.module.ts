@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'registrar-libro', component: RegistrarLibroComponent },
   { path: 'libros', component: LibrosComponent },
   { path: 'lista-libros', component: ListaLibrosComponent },
-  { path: '', redirectTo: '/lista-libros', pathMatch: 'full' },
+  { path: '', redirectTo: '/registrar', pathMatch: 'full' },
   { path: 'editar-libro/:id', component: EditarLibroComponent },
   { path: 'lista-libros/:id', component: LibroComponent },
   { path: 'inicio-sesion', component: InicioSesionComponent },

@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserServiceService } from '../../servicios/user-service.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -18,7 +19,8 @@ export class InicioSesionComponent {
     private snackBar: MatSnackBar, 
     private location: Location, 
     private datePipe: DatePipe,
-    private router: Router
+    private router: Router,
+    private userService: UserServiceService
     ) { }
   hide = true;
   loginForm = new FormGroup({
@@ -44,7 +46,8 @@ export class InicioSesionComponent {
     if (this.loginForm.valid) {
       this.service.loginUser(this.loginForm.value).subscribe(
         response => {
-          console.log('Usuario inició sesión con éxito', response);
+          //console.log('Usuario inició sesión con éxito', response);
+          this.userService.setUser(response);
           this.loginForm.reset();
           this.snackBar.open('Login exitoso', 'Cerrar', {
           duration: 500,
