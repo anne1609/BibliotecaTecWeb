@@ -47,5 +47,7 @@ export class ServicioService {
   loginUser(userData: any): Observable<any>{
     return this.http.post('/api/login', userData);
   }
-  
+  registrarPrestamo(prestamoData: any): Observable<any>{
+    return this.http.post('/api/borrow', prestamoData);
+  }
 }

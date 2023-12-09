@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ServicioService } from '../../servicios/servicio.service';
-import { UserServiceService } from '../../servicios/user-service.service';
+import { User, UserServiceService } from '../../servicios/user-service.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,14 +13,10 @@ import { UserServiceService } from '../../servicios/user-service.service';
 })
 export class ListaLibrosComponent implements OnInit{
   filtro: string = '';
-  /*libros = [
-    { titulo: 'Libro 1', descripcion: 'Descripción del Libro 1', imagen: '1.png' },
-    { titulo: 'Libro 2', descripcion: 'Descripción del Libro 2', imagen: '2.png' },
- 
-  ];*/
-  
   libros:any;
   categorias:any;
+  esAutor: boolean = false; // Agrega esta propiedad
+  private userSubscription: Subscription = new Subscription;
   constructor(
     private dialog: MatDialog, 
     private productosService: ServicioService,
@@ -29,6 +26,19 @@ export class ListaLibrosComponent implements OnInit{
   ngOnInit(){
     this.obtenerLibros();
     this.obtenerCategorias();
+    this.userSubscription = this.userService.getUser().subscribe((user: User | null | string) => {
+      let userObj: User | null = null;
+
+      if (typeof user === 'string') {
+        userObj = JSON.parse(user);
+      } else {
+        userObj = user;
+      }
+      if (userObj) {
+        console.log("Tipo de usuario:", userObj.tipo);
+        this.esAutor = userObj.tipo === 'autor'; 
+      }
+    });
   }
   obtenerLibros(){
     this.productosService.obtenerLibros().subscribe(
@@ -86,4 +96,5 @@ export class ListaLibrosComponent implements OnInit{
     )
     console.log(this.libros)
   }
+
 }

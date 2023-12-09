@@ -1,4 +1,3 @@
-<!-- lista-libros.component.html -->
 <div class="container">
   <div class="filters">
     <div class="search-title">
@@ -9,7 +8,6 @@
         </button>
       </mat-form-field>
     </div>
-    
     <div class="category-filter">
       <mat-form-field>
         <mat-label>Seleccionar categoria</mat-label>
@@ -20,12 +18,7 @@
         </mat-select>
       </mat-form-field>
     </div>
-    
-
   </div>
-  
-
-
   <mat-card *ngFor="let libro of libros" class="book-card" >
 
     <div class="card-content" >
@@ -48,13 +41,9 @@
           </mat-card-content>
         </div>
       </div>
-
-      <!-- Agregar el botón del menú en la esquina superior derecha -->
-      <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-menu-trigger">
+      <button *ngIf="esAutor" mat-icon-button [matMenuTriggerFor]="menu" class="mat-menu-trigger">
         <mat-icon>more_vert</mat-icon>
       </button>
-
-      <!-- Definir el menú -->
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="editarLibro(libro._id)" routerLink="/editar-libro/{{ libro._id }}">
           <mat-icon>edit</mat-icon>

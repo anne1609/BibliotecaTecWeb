@@ -166,6 +166,10 @@ def login_user():
     else:
         return jsonify({"error": "Las credenciales son incorrectas"}), 401
 
+@app.route('/borrow', methods=['POST'])
+def borrow_book():
+    return 0
+
 if __name__ == "__main__":
     app.run(port=7777, debug=True)
 
