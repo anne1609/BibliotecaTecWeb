@@ -95,6 +95,7 @@ def delete_book(id):
 def edit_book(id):
     try:
         updated_data = request.json
+        updated_data["cantidad"] = int(updated_data["cantidad"])
         result = collection.update_one({"_id": id}, {"$set": updated_data})
         if result.matched_count > 0:
             if result.modified_count > 0:
