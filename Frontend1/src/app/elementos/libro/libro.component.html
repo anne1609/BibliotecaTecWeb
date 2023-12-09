@@ -19,6 +19,14 @@
               {{i < libro.rating ? 'star' : 'star_border'}}
              </mat-icon>
           </div>
+          <mat-card-subtitle class="disponible">
+            <span *ngIf="esAutor; else disponibilidad">
+              Cantidad: {{libro.cantidad}}
+            </span>
+            <ng-template #disponibilidad>
+               Disponible: {{ libro.cantidad > 0 ? 'Sí' : 'No' }}
+            </ng-template>
+          </mat-card-subtitle>
           <p><strong>Autor:</strong> {{ libro.autor }}</p>
             <p><strong>Subtítulo:</strong> {{ libro.subtitulo }}</p>
             <p><strong>Categoría:</strong> {{ libro.categoria }}</p>

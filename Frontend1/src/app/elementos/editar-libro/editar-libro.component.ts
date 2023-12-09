@@ -28,6 +28,7 @@ export class EditarLibroComponent {
     idioma: new FormControl('', Validators.required),
     formato: new FormControl('', Validators.required),
     fecha_publicacion: new FormControl('', Validators.required),
+    cantidad: new FormControl('', Validators.required),
   });
 
   ngOnInit(): void {
@@ -60,7 +61,9 @@ export class EditarLibroComponent {
         paginas: this.libro.paginas,
         idioma: this.libro.idioma,
         formato: this.libro.formato,
-        fecha_publicacion: this.libro.fecha_publicacion})
+        fecha_publicacion: this.libro.fecha_publicacion,
+        cantidad: this.libro.cantidad
+      })
   }
   }
   update() {

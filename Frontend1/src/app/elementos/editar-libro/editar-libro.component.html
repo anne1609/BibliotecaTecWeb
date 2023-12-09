@@ -65,6 +65,11 @@
         <mat-label>Fecha de publicación</mat-label>
         <input matInput formControlName="fecha_publicacion" required>
         </mat-form-field>
+
+        <mat-form-field appearance="fill">
+        <mat-label>Cantidad Disponible</mat-label>
+        <input matInput formControlName="cantidad" required>
+        </mat-form-field>
     </form>
     <div class="button-container">
         <button mat-raised-button color="primary" (click)="update()">Editar</button>
