@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 120px; 
+    margin-bottom: 80px !important;
+  }
+  .filters {
+    display: flex;
+    
+  }
+  
+  .search-title {
+    margin-left: auto;
+    margin-right: 10px;
+    
+  }
+  
+  .custom-mat-form-field {
+    background-color: white;
+    width: 400px;
+  }
+  
+  button.mat-icon-button {
+    background-color: transparent;
+  }
+  
+  .book-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  .mat-mdc-card-avatar {
+    width: 130px !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    border-radius: 8%;
+    margin-right: 40px;
+  }
+  
+  
+  
+  /* lista-libros.component.css */
+  .card-content {
+    display: flex;
+    justify-content: space-between; /* Alinea el botón del menú a la derecha */
+   
+  }
+  
+  .mat-menu-trigger {
+    width: 40px; 
+    background-color: transparent;
+  }
+  
+  .text-content {
+    flex-grow: 1; /* Ocupa el espacio restante */
+    text-align: left;
+  }
+  
+  .disponible {
+    color: green; 
+  }
+  
+  mat-card-title {
+    cursor: pointer;
+    color: black;  
+  }
+  
+  mat-card-title:hover {
+    color:  #3F51B5 /* Cuando el cursor pasa por encima */
+  }
+  mat-card-title, mat-card-content {
+    
+      padding: 0 ; 
+    
+  }
+  
+  .book-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

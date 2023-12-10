@@ -36,6 +36,7 @@ import { RegistrarAutorComponent } from './paginas/registrar-autor/registrar-aut
 import { RegistrarComponent } from './paginas/registrar/registrar.component';
 import { PopUpPrestamoComponent } from './elementos/pop-up-prestamo/pop-up-prestamo.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MisLibrosComponent } from './paginas/mis-libros/mis-libros.component';
 
 registerLocaleData(localeEs);
 
@@ -52,7 +53,8 @@ registerLocaleData(localeEs);
     RegistrarUsuarioComponent,
     RegistrarAutorComponent,
     RegistrarComponent,
-    PopUpPrestamoComponent
+    PopUpPrestamoComponent,
+    MisLibrosComponent
 
   ],
   imports: [

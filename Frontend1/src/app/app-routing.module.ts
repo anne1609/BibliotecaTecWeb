@@ -9,6 +9,7 @@ import { InicioSesionComponent } from './paginas/inicio-sesion/inicio-sesion.com
 import { RegistrarUsuarioComponent } from './paginas/registrar-usuario/registrar-usuario.component';
 import { RegistrarAutorComponent } from './paginas/registrar-autor/registrar-autor.component';
 import { RegistrarComponent } from './paginas/registrar/registrar.component';
+import { MisLibrosComponent } from './paginas/mis-libros/mis-libros.component';
 
 const routes: Routes = [
   { path: 'registrar-libro', component: RegistrarLibroComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'inicio-sesion', component: InicioSesionComponent },
   { path: 'registrar-usuario', component: RegistrarUsuarioComponent },
   { path: 'registrar-autor', component: RegistrarAutorComponent },
-  {path: 'registrar', component: RegistrarComponent}
+  {path: 'registrar', component: RegistrarComponent},
+  {path:"mis-libros",component:MisLibrosComponent}
 ];
 
 @NgModule({
