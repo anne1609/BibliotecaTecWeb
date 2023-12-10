@@ -7,6 +7,9 @@
               <mat-card-title>{{ libro.nombreLibro }}</mat-card-title>
               <mat-card-subtitle>Fecha de Inicio: {{libro.fechaInicio | date:'d'}} de {{libro.fechaInicio | date:'MMMM'}} de {{libro.fechaInicio | date:'yyyy'}}</mat-card-subtitle>
               <mat-card-subtitle>Fecha fin: {{libro.fechaFin | date:'d'}} de {{libro.fechaFin | date:'MMMM'}} de {{libro.fechaFin | date:'yyyy'}}</mat-card-subtitle>
+              <mat-card-subtitle>Cotización: {{libro.cotizacion | currency: 'USD':true }} </mat-card-subtitle>
+              <mat-card-subtitle>Días: {{libro.dias}} </mat-card-subtitle>
+              
             </div>
           </div>
         </div>

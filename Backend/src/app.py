@@ -176,6 +176,9 @@ def borrow_book():
     book_name = data.get('nombreLibro') 
     start_date = data.get('fechaInicio')  
     end_date = data.get('fechaFin')
+    cotizacion = data.get('cotizacion')
+    dias = data.get('dias')
+
     book = db.biblioteca.find_one({'_id': book_id})
     print(int(book['cantidad']))
     if book and int(book['cantidad']) > 0:
@@ -187,7 +190,9 @@ def borrow_book():
             'idUsuario': user_id,
             'nombreLibro': book_name, 
             'fechaInicio': start_date,  
-            'fechaFin': end_date 
+            'fechaFin': end_date,
+            'cotizacion':cotizacion,
+            'dias': dias
         }
         db.Prestamos.insert_one(prestamo)
         return jsonify({'message': 'Préstamo registrado con éxito'}), 200

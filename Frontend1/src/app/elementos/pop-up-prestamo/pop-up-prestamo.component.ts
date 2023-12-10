@@ -11,9 +11,9 @@ import { Subscription } from 'rxjs';
 export class PopUpPrestamoComponent implements OnDestroy, OnInit {
   startDate = new FormControl(new Date());
   endDate = new FormControl(new Date());
-  diasDiferencia: number = 0;
+  dias: number = 0;
   costoPorDia: number = 5;
-  costoTotal: number = 0;
+  cotizacion: number = 0;
   private subscriptions: Subscription[] = [];
   minDate: Date = new Date(); 
 
@@ -45,12 +45,12 @@ export class PopUpPrestamoComponent implements OnDestroy, OnInit {
     const end = new Date(endDateValue instanceof Date ? endDateValue : new Date(endDateValue));
 
     const diferenciaMs = Math.abs(end.getTime() - start.getTime());
-    this.diasDiferencia = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
+    this.dias = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
 
-    this.diasDiferencia += 1;
+    this.dias += 1;
     
 
-    this.costoTotal = this.diasDiferencia * this.costoPorDia;
+    this.cotizacion = this.dias * this.costoPorDia;
   }
 }
 
@@ -64,12 +64,10 @@ export class PopUpPrestamoComponent implements OnDestroy, OnInit {
       this.dialogRef.close({
         startDate: this.startDate.value.toISOString(),
         endDate: this.endDate.value.toISOString(),
-        diasDiferencia: this.diasDiferencia,
-        costoTotal: this.costoTotal
+        cotizacion: this.cotizacion,
+        dias: this.dias
       });
-    } else {
-      // Manejar el caso cuando startDate o endDate son null
-    }
+    } 
   }
 
   ngOnDestroy() {

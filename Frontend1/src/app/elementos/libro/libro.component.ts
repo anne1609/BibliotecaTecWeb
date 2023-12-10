@@ -78,13 +78,17 @@ export class LibroComponent {
         let idUsuario = this.usuario?._id;
         let fechaInicio = result.startDate; // fecha inicio
         let fechaFin = result.endDate; // fecha fin
+        let cotizacion = result.cotizacion;
+        let dias = result.dias;
         let data = {
           "estado": "activo",
           "idLibro": idLibro, 
           "idUsuario": idUsuario, 
           "nombreLibro": nombreLibro,
           "fechaInicio": fechaInicio,
-          "fechaFin": fechaFin
+          "fechaFin": fechaFin,
+          "cotizacion": cotizacion,
+          "dias": dias
         };
         this.libroService.borrowBook(data).subscribe( //aca ya le envio el data
           response => {
