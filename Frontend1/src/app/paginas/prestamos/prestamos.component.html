@@ -1,1 +1,21 @@
-<p>prestamos works!</p>
+<div class="container">
+    <mat-card *ngFor="let prestamo of listaPrestamos" class="book-card" >
+
+        <div class="card-content" >
+          <div class="text-content">
+            <div class="title-and-summary">
+              <mat-card-title>Usuario: {{ prestamo.idUsuario}}</mat-card-title>
+              <mat-card-subtitle>Libro prestado: {{ prestamo.nombreLibro }}</mat-card-subtitle>
+              <mat-card-subtitle>Fecha de Inicio: {{prestamo.fechaInicio | date:'d'}} de {{prestamo.fechaInicio | date:'MMMM'}} de {{prestamo.fechaInicio | date:'yyyy'}}</mat-card-subtitle>
+              <mat-card-subtitle>Fecha fin: {{prestamo.fechaFin | date:'d'}} de {{prestamo.fechaFin | date:'MMMM'}} de {{prestamo.fechaFin | date:'yyyy'}}</mat-card-subtitle>
+              <mat-card-subtitle>Días prestados: {{prestamo.dias}} </mat-card-subtitle>
+              <mat-card-subtitle>Estado del prestamo: {{prestamo.estado}} </mat-card-subtitle>
+              
+            </div>
+          </div>
+        </div>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" >Finalizar prestamo</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

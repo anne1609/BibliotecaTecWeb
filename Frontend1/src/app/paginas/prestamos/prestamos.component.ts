@@ -16,10 +16,12 @@ export class PrestamosComponent implements OnInit {
     this.obtenerPrestamos();
   }
 
+
   obtenerPrestamos(): void {
     this.prestamosService.obtenerPrestamos().subscribe(
-      (prestamos) => {
-        this.listaPrestamos = prestamos;
+      (prestamos: string[]) => {
+        this.listaPrestamos = prestamos.map(prestamo => JSON.parse(prestamo));
+        console.log(this.listaPrestamos);  
       },
       (error) => {
         console.error('Error al obtener los préstamos', error);
