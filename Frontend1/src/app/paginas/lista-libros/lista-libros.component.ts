@@ -15,7 +15,7 @@ export class ListaLibrosComponent implements OnInit{
   filtro: string = '';
   libros:any;
   categorias:any;
-  esAutor: boolean = false; // Agrega esta propiedad
+  esAutor: boolean = false; 
   private userSubscription: Subscription = new Subscription;
   constructor(
     private dialog: MatDialog, 
