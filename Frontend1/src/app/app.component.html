@@ -5,6 +5,7 @@
     <a *ngIf="!usuarioAutenticado" routerLink="/registrar" class="navbar-link">Regístrate</a>
     <a *ngIf="usuarioAutenticado && tipoUsuario === 'lector' || tipoUsuario === 'autor'" routerLink="/lista-libros" class="navbar-link">Libros</a>
     <a *ngIf="usuarioAutenticado && tipoUsuario === 'autor'" routerLink="/registrar-libro" class="navbar-link">Registrar libro</a>
+    <a *ngIf="usuarioAutenticado && tipoUsuario === 'autor'" routerLink="/registrar-libro" class="navbar-link">Registrar libro</a>
   </div>
 </mat-toolbar>
 <div class="content">

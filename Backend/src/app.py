@@ -117,9 +117,9 @@ def add_lector():
     data = request.json
     if all(k in data for k in ["Nombre", "Correo", "Contrasenia", "NumeroTarjeta", "FechaTarjeta", "CodigoTarjeta"]):
         hashed_password = bcrypt.hashpw(data['Contrasenia'].encode('utf-8'), bcrypt.gensalt())
-        user_id = str(uuid.uuid4())
+        user_id = usuarios.count_documents({}) + 1
         lector_document = {
-            "_id": user_id,
+            "_id": str(user_id),
             "nombre": data["Nombre"],
             "correo": data["Correo"],
             "contrasenia": hashed_password,
@@ -140,22 +140,23 @@ def add_author():
     data = request.json
     if all(k in data for k in ["Nombre", "Correo", "Contrasenia", "DireccionOficina", "NumeroCuentaBanco"]):
         hashed_password = bcrypt.hashpw(data['Contrasenia'].encode('utf-8'), bcrypt.gensalt())
-        user_id = str(uuid.uuid4())
-        lector_document = {
-            "_id": user_id,
+        user_id = usuarios.count_documents({}) + 1
+        author_document = {
+            "_id": str(user_id),
             "nombre": data["Nombre"],
             "correo": data["Correo"],
             "contrasenia": hashed_password,
-            "oficina":data["DireccionOficina"],
+            "oficina": data["DireccionOficina"],
             "informacionBancaria": {
                 "numeroCuentaBanco": data["NumeroCuentaBanco"]
             },
             "tipo": "autor"
         }
-        usuarios.insert_one(lector_document)
-        return jsonify({"mensaje": "Lector registrado exitosamente"}), 201
+        usuarios.insert_one(author_document)
+        return jsonify({"mensaje": "Autor registrado exitosamente"}), 201
     else:
         return jsonify({"error": "Faltan datos necesarios para el registro"}), 400
+
 
 @app.route('/login', methods=['POST'])
 def login_user():
@@ -174,7 +175,7 @@ def borrow_book():
     user_id = data.get('idUsuario')
     book_name = data.get('nombreLibro') 
     start_date = data.get('fechaInicio')  
-    end_date = data.get('fechaFin') 
+    end_date = data.get('fechaFin')
     book = db.biblioteca.find_one({'_id': book_id})
     print(int(book['cantidad']))
     if book and int(book['cantidad']) > 0:
@@ -196,6 +197,12 @@ def borrow_book():
 @app.route('/loans/<user_id>', methods=['GET'])
 def get_loans(user_id):
     loans = db.Prestamos.find({'idUsuario': user_id})
+    loans_list = list(loans)
+    return jsonify(loans_list), 200
+
+@app.route('/loans', methods=['GET'])
+def get_all_loans():
+    loans = db.Prestamos
     loans_list = list(loans)
     return jsonify(loans_list), 200
 

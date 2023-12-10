@@ -79,6 +79,7 @@ export class LibroComponent {
         let fechaInicio = result.startDate; // fecha inicio
         let fechaFin = result.endDate; // fecha fin
         let data = {
+          "estado": "activo",
           "idLibro": idLibro, 
           "idUsuario": idUsuario, 
           "nombreLibro": nombreLibro,
