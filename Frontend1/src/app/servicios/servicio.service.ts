@@ -57,4 +57,7 @@ export class ServicioService {
   obtenerPrestamosDeUsuario(userId: string): Observable<any> {
     return this.http.get(`/loansUser/${userId}`);
   }
+  obtenerPrestamos(): Observable<any> {
+    return this.http.get(`/api/loans`);
+  }
 }

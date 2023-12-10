@@ -4,6 +4,7 @@ from pymongo import MongoClient
 import bcrypt
 import uuid
 from bson.json_util import dumps
+from bson import json_util, ObjectId
 
 app = Flask(__name__)
 
@@ -207,8 +208,8 @@ def get_loans(user_id):
 
 @app.route('/loans', methods=['GET'])
 def get_all_loans():
-    loans = db.Prestamos
-    loans_list = list(loans)
+    loans = db.Prestamos.find()  # Utiliza el método find() para obtener todos los documentos
+    loans_list = [json_util.dumps(doc) for doc in loans]  # Convierte cada documento a JSON
     return jsonify(loans_list), 200
 
 
