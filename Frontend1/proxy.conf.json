@@ -33,6 +33,13 @@
       "changeOrigin": true,
       "logLevel": "debug",
       "pathRewrite": {"^/category/" : ""}
+    },
+    "/loansUser/*": {
+      "target": "http://127.0.0.1:7777/loans",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/loansUser/" : ""}
     }
   }
   

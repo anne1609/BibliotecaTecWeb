@@ -179,7 +179,9 @@ def borrow_book():
     print(int(book['cantidad']))
     if book and int(book['cantidad']) > 0:
         db.biblioteca.update_one({'_id': book_id}, {'$inc': {'cantidad': -1}})
+        prestamo_id = str(uuid.uuid4())
         prestamo = {
+            '_id': prestamo_id,
             'idLibro': book_id,
             'idUsuario': user_id,
             'nombreLibro': book_name, 
@@ -190,6 +192,14 @@ def borrow_book():
         return jsonify({'message': 'Préstamo registrado con éxito'}), 200
     else:
         return jsonify({'error': 'No hay copias suficientes para prestar'}), 400
+    
+@app.route('/loans/<user_id>', methods=['GET'])
+def get_loans(user_id):
+    loans = db.Prestamos.find({'idUsuario': user_id})
+    loans_list = list(loans)
+    return jsonify(loans_list), 200
+
+
 
 if __name__ == "__main__":
     app.run(port=7777, debug=True)
