@@ -2,19 +2,25 @@
 <h2>Selecciona las fechas de préstamo</h2>
 <mat-form-field appearance="fill">
   <mat-label>Fecha de inicio</mat-label>
-  <input matInput [matDatepicker]="picker1" [formControl]="startDate">
+  <input matInput [matDatepicker]="picker1" [formControl]="startDate" [min]="minDate">
   <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
   <mat-datepicker #picker1></mat-datepicker>
 </mat-form-field>
 
 <mat-form-field appearance="fill">
   <mat-label>Fecha fin</mat-label>
-  <input matInput [matDatepicker]="picker2" [formControl]="endDate">
+  <input matInput [matDatepicker]="picker2" [formControl]="endDate" [min]="minDate">
   <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
   <mat-datepicker #picker2></mat-datepicker>
 </mat-form-field>
+
+
+<div class="cotizacion">
+  <p>Cotización: {{ costoTotal | currency: 'USD':true }}</p>
+</div>
 
 <div mat-dialog-actions>
   <button mat-button (click)="cerrar()">Cancelar</button>
   <button mat-button (click)="confirmar()">Confirmar</button>
 </div>
+
