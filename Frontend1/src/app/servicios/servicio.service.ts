@@ -60,4 +60,5 @@ export class ServicioService {
   obtenerPrestamos(): Observable<any> {
     return this.http.get(`/api/loans`);
   }
+  
 }

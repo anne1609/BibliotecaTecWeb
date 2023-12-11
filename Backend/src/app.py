@@ -6,7 +6,9 @@ import uuid
 from bson.json_util import dumps
 from bson import json_util, ObjectId
 
+
 app = Flask(__name__)
+
 
 client = MongoClient("mongodb+srv://silpancho:silpancho@silpancho.paqmjpx.mongodb.net")
 db = client.SilDB
@@ -209,7 +211,11 @@ def get_loans(user_id):
 @app.route('/loans', methods=['GET'])
 def get_all_loans():
     loans = db.Prestamos.find()  # Utiliza el método find() para obtener todos los documentos
-    loans_list = [json_util.dumps(doc) for doc in loans]  # Convierte cada documento a JSON
+    loans_list = []
+    for loan in loans:
+        user = usuarios.find_one({"_id": loan['idUsuario']})
+        loan['nombreUsuario'] = user['nombre']
+        loans_list.append(json_util.dumps(loan))
     return jsonify(loans_list), 200
 
 

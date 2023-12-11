@@ -38,6 +38,7 @@ import { PopUpPrestamoComponent } from './elementos/pop-up-prestamo/pop-up-prest
 import { MatDialogModule } from '@angular/material/dialog';
 import { MisLibrosComponent } from './paginas/mis-libros/mis-libros.component';
 import { PrestamosComponent } from './paginas/prestamos/prestamos.component';
+import { PopUpFinalizarPrestamoComponent } from './elementos/pop-up-finalizar-prestamo/pop-up-finalizar-prestamo.component';
 
 registerLocaleData(localeEs);
 
@@ -56,7 +57,8 @@ registerLocaleData(localeEs);
     RegistrarComponent,
     PopUpPrestamoComponent,
     MisLibrosComponent,
-    PrestamosComponent
+    PrestamosComponent,
+    PopUpFinalizarPrestamoComponent
 
   ],
   imports: [

@@ -1,10 +1,18 @@
 <div class="container">
+  <div class="search-title">
+    <mat-form-field class="custom-mat-form-field" appearance="fill">
+      <input matInput placeholder="Busca por nombre de usuario" [(ngModel)]="filtro">
+      <button mat-button matSuffix (click)="filtrarUsuario(filtro)" type="button">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
     <mat-card *ngFor="let prestamo of listaPrestamos" class="book-card" >
 
         <div class="card-content" >
           <div class="text-content">
             <div class="title-and-summary">
-              <mat-card-title>Usuario: {{ prestamo.idUsuario}}</mat-card-title>
+              <mat-card-title>Usuario: {{ prestamo.nombreUsuario }}</mat-card-title>
               <mat-card-subtitle>Libro prestado: {{ prestamo.nombreLibro }}</mat-card-subtitle>
               <mat-card-subtitle>Fecha de Inicio: {{prestamo.fechaInicio | date:'d'}} de {{prestamo.fechaInicio | date:'MMMM'}} de {{prestamo.fechaInicio | date:'yyyy'}}</mat-card-subtitle>
               <mat-card-subtitle>Fecha fin: {{prestamo.fechaFin | date:'d'}} de {{prestamo.fechaFin | date:'MMMM'}} de {{prestamo.fechaFin | date:'yyyy'}}</mat-card-subtitle>
@@ -15,7 +23,7 @@
           </div>
         </div>
         <mat-card-actions align="end">
-          <button mat-raised-button color="primary" >Finalizar prestamo</button>
+          <button mat-raised-button color="primary" (click)="openDialog(prestamo._id)">Finalizar prestamo</button>
         </mat-card-actions>
       </mat-card>
 </div>
