@@ -23,7 +23,7 @@
           </div>
         </div>
         <mat-card-actions align="end">
-          <button mat-raised-button color="primary" (click)="openDialog(prestamo._id)">Finalizar prestamo</button>
+          <button mat-raised-button color="primary" *ngIf="prestamo.estado === 'activo'" (click)="openDialog(prestamo._id)">Finalizar prestamo</button>
         </mat-card-actions>
       </mat-card>
 </div>
