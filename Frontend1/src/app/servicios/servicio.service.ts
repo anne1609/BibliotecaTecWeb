@@ -60,5 +60,7 @@ export class ServicioService {
   obtenerPrestamos(): Observable<any> {
     return this.http.get(`/api/loans`);
   }
-  
+  cambiarEstado(id:any): Observable<any>{
+    return this.http.post(`/cambiar_estado/${id}`,{})
+  }
 }

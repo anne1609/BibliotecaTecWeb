@@ -181,6 +181,7 @@ def borrow_book():
     end_date = data.get('fechaFin')
     cotizacion = data.get('cotizacion')
     dias = data.get('dias')
+    estado = data.get('estado')
 
     book = db.biblioteca.find_one({'_id': book_id})
     print(int(book['cantidad']))
@@ -195,7 +196,8 @@ def borrow_book():
             'fechaInicio': start_date,  
             'fechaFin': end_date,
             'cotizacion':cotizacion,
-            'dias': dias
+            'dias': dias,
+            'estado': estado
         }
         db.Prestamos.insert_one(prestamo)
         return jsonify({'message': 'Préstamo registrado con éxito'}), 200
@@ -218,7 +220,14 @@ def get_all_loans():
         loans_list.append(json_util.dumps(loan))
     return jsonify(loans_list), 200
 
-
+@app.route('/cambiar_estado/<prestamo_id>', methods=['POST'])
+def cambiar_estado(prestamo_id):
+    prestamo = db.Prestamos.find_one({"_id":prestamo_id})
+    prestamo["estado"] = "devuelto"
+    libro = collection.find_one({"_id":prestamo["idLibro"]})
+    libro["cantidad"] += 1
+    collection.update_one({"_id":libro["_libro"]},{"cantidad":libro["cantidad"]})
+    return jsonify({'message': 'estado de prestamo realizado con exito'}), 200
 
 if __name__ == "__main__":
     app.run(port=7777, debug=True)

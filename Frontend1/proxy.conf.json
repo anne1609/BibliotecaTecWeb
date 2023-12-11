@@ -40,6 +40,13 @@
       "changeOrigin": true,
       "logLevel": "debug",
       "pathRewrite": {"^/loansUser/" : ""}
+    },
+    "/cambiar_estado/*": {
+      "target": "http://127.0.0.1:7777/cambiar_estado/",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {"^/cambiar_estado/" : ""}
     }
   }
   

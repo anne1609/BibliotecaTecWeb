@@ -37,6 +37,7 @@ export class PrestamosComponent implements OnInit {
     this.dialog.open(PopUpFinalizarPrestamoComponent, {
       data: { id: prestamoId }
     });
+    
   }
 
   filtrarUsuario(filtro: string) {
