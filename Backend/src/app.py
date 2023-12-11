@@ -220,13 +220,11 @@ def get_all_loans():
         loans_list.append(json_util.dumps(loan))
     return jsonify(loans_list), 200
 
-@app.route('/cambiar_estado/<prestamo_id>', methods=['POST'])
+@app.route('/cambiar_estado/<string:prestamo_id>', methods=['POST'])
 def cambiar_estado(prestamo_id):
-    prestamo = db.Prestamos.find_one({"_id":prestamo_id})
-    prestamo["estado"] = "devuelto"
-    libro = collection.find_one({"_id":prestamo["idLibro"]})
-    libro["cantidad"] += 1
-    collection.update_one({"_id":libro["_libro"]},{"cantidad":libro["cantidad"]})
+    prestamo = db.Prestamos.find_one_and_update({"_id":prestamo_id},{"$set":{"estado":"desactivado"}})
+
+    collection.update_one({"_id":prestamo["idLibro"]},{ "$inc": { "cantidad":1}})
     return jsonify({'message': 'estado de prestamo realizado con exito'}), 200
 
 if __name__ == "__main__":
